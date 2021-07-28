@@ -4,12 +4,15 @@
 const Cart = function(items) {
   // this.items is an array of CartItem instances.
   this.items = items;
-};
+}
 
 Cart.prototype.addItem = function (product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
    let newItem  = new CartItem(product,quantity);
+   
    this.items.push(newItem);
+
+   
 
 };
 
@@ -21,6 +24,9 @@ Cart.prototype.saveToLocalStorage = function () {
 Cart.prototype.removeItem = function(item) {
   // TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
+  localStorage.removeItem("product");
+
+
 };
 
 const CartItem = function(product, quantity) {
@@ -57,6 +63,22 @@ function generateCatalog() {
   new Product('assets/water-can.jpg', 'Water Can');
   new Product('assets/wine-glass.jpg', 'Wine Glass');
 }
+console.log(Product.allProducts);
 
+
+generateCatalog(); 
 // Initialize the app by creating the big list of products with images and names
-generateCatalog();
+function list (){
+
+  let list = document.getElementById('list');
+
+  for (let i = 0; i < Product.allProducts.length; i++) {
+
+      let listItem = document.createElement('li');
+
+      list.appendChild(listItem);
+
+      listItem.textContent = `${new product[i].name}` 
+
+}
+}
